@@ -26,6 +26,7 @@ people = [
     ('Simon', 'Bloom', 35, 'Male'),
 ]
 
+
 # For each student print a message
 # Example:
 #   "Students name: Bob Green. Students courses: physics, geography, math."

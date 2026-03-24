@@ -159,4 +159,163 @@
 #     # squares.append(x ** 2)
 
 
-print(99 % 2 == 0)
+# print(99 % 2 == 0)
+
+
+# sentence = 'Hello people of planet Earth'
+
+# counts = {}
+
+# for letter in set(sentence):
+#     counts[letter] = sentence.count(letter)
+
+
+# max_count = max(counts.values())
+
+# result = []
+# for key, value in counts.items():
+#     if value == max_count:
+#         result.append(key)
+
+
+# print(result)
+# condition = True
+
+# while condition:
+#     user_input = input("Enter your name: ")
+
+#     if user_input:
+#         print('Hello ' + user_input)
+#         condition = False
+#     else:
+#         print('Name must not be empty')
+
+
+# while True:
+#     user_input = input("Enter your name: ")
+
+#     if not user_input:
+#         print('Name must not be empty')
+#         continue
+
+#     print(f'User entered name: {user_input}')
+#     break
+
+# for letter in 'python13':
+
+#     if letter == 'h':
+#         continue
+#     elif letter == 'n':
+#         break
+#     print(letter)
+
+import time
+
+# while True:
+
+#     user_choice = input('Choose number:\n' \
+#                         '1.Say Hello\n' \
+#                         '2.Joke\n' \
+#                         '3.Exit\n' \
+#                         '-> ')
+    
+#     if user_choice == '1':
+#         while True:
+#             user_name = input('Please enter name or X for exit: ')
+#             if not user_name:
+#                 print('Must enter something!')
+#                 continue
+#             elif user_name.lower() == 'x':
+#                 exit()
+#             print(f'Hello {user_name.title()}')
+#             time.sleep(2)
+#             break
+
+# entering_name = True      
+# while entering_name:
+
+#     user_choice = input('Choose number:\n' \
+#                         '1.Say Hello\n' \
+#                         '2.Joke\n' \
+#                         '3.Exit\n' \
+#                         '-> ')
+    
+#     if user_choice == '1':
+#         while entering_name:
+#             user_name = input('Please enter name or X for exit: ')
+#             if not user_name:
+#                 print('Must enter something!')
+#                 continue
+#             elif user_name.lower() == 'x':
+#                 entering_name = False
+#                 break
+#             print(f'Hello {user_name.title()}')
+#             time.sleep(2)
+#             break
+
+# while True:
+#     print('Enter Estonian national ID or type "exit" to quit.')
+#     isikukood = input("-> ")
+#     if isikukood.lower() == 'exit':
+#         print('Good bye')
+#         break
+#     try:
+#         int(isikukood)
+#         # 1/0
+#         if len(isikukood) != 11:
+#             raise UserWarning
+#     except ValueError:
+#         print("Code you entered is not numeric")
+#         continue
+#     except UserWarning:
+#         print(f'Isikukood is too {'long' if len(isikukood) > 11 else 'short'}')
+#         continue
+#     else:
+#         print(f'{isikukood} is registered.')
+#     finally:
+#         print('finally block')
+#     break
+
+# for num in range(11):
+#     print(num)
+#     if num == 10:
+#         print('OK')
+#         break
+# else:
+#     print('Not found')
+
+# users = ['alice', 'bob', 'mary', 'charlie']
+
+# for user in users:
+#     if user == 'mary':
+#         print('Found')
+#         break
+# else:
+#     print('Not found')
+
+# n = 3
+
+# while n > 0:
+#     print(n)
+#     n -= 1
+# else:
+#     print('Finished')
+
+
+# n = 3
+# while n > 0:
+#     print(n)
+#     if n == 2:
+#         break
+#     n -= 1
+# else:
+#     print('Finished')
+
+import time
+
+t = time.localtime()
+# print(time.localtime())
+
+
+
+# time.struct_time(tm_year=2026, tm_mon=3, tm_mday=22, tm_hour=18, tm_min=58, tm_sec=8, tm_wday=6, tm_yday=81, tm_isdst=0)
