@@ -75,6 +75,19 @@ class Potion(Item):
             print(f"{self.name} is out of stock.")
 
 
+class Weapon(Item):
+
+    def __init__(self, name, bonus_attack, qty=1):
+        super().__init__(name, qty)
+        self.bonus_attack = bonus_attack
+
+    # TODO Пересмотреть метод надевания предмета
+    # 
+    def equip(self, target):
+        print(f'{target.name} equips {self.name}. Attack increased by {self.bonus_attack}')
+        target.base_attack += self.bonus_attack
+
+
 if __name__ == "__main__":
     backpack = Inventory()
     potion = Potion("Health Potion", 50, 3)
