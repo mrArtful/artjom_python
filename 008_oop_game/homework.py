@@ -1,49 +1,55 @@
-# Homework: Inventory Item Classes
-#
-# Right now, inventory items are stored as plain dictionaries like:
-#   {"name": "Health potion", "qty": 6}
-#
-# Your task is to replace them with proper classes using OOP.
-#
-# ------------------------------------------------------------------
-# TASK 1 - Base Item class
-# ------------------------------------------------------------------
-# Create a class called Item with:
-#   - __init__(self, name, qty=1)  ->  stores name and qty
-#   - __str__(self)                ->  returns "Health Potion x 3"
-#
-# Example:
-#   item = Item("Shield", 2)
-#   print(item)   # Shield x 2
+from entities import Warrior
+class Item:
+
+    def __init__(self, name, qty=1):
+        self.name = name
+        self.qty = qty
+
+    def __str__(self):
+        return f"{self.name} x {self.qty}"
+    
+
+class Potion(Item):
+
+    def __init__(self, name, heal_amount, qty=1):
+        super().__init__(name, qty)
+        self.heal_amount = heal_amount
+
+    def use(self, target):
+        if self.qty > 0:
+            if target.hp < target.max_hp:
+                print(f'{target.name} drinks {self.name} and restores {self.heal_amount} HP.')
+                self.qty -= 1
+                if target.hp + self.heal_amount > target.max_hp:
+                    target.hp = target.max_hp
+                else:
+                    target.hp += self.heal_amount
+            else:
+                print(f'{target.name} has full HP.')
+        else:
+            print(f"{self.name} is out of stock.")
+        
+
+class Weapon(Item):
+
+    def __init__(self, name, bonus_attack, qty=1):
+        super().__init__(name, qty)
+        self.bonus_attack = bonus_attack
+
+    # TODO Пересмотреть метод надевания предмета
+    # 
+    def equip(self, target):
+        print(f'{target.name} equips {self.name}. Attack increased by {self.bonus_attack}')
+        target.base_attack += self.bonus_attack
 
 
-# ------------------------------------------------------------------
-# TASK 2 - Potion subclass
-# ------------------------------------------------------------------
-# Create a class Potion that inherits from Item with:
-#   - __init__(self, name, qty, heal_amount)
-#       heal_amount = how many HP it restores
-#   - use(self, target)
-#       prints: "Artjom drinks Health Potion and restores 50 HP."
-#       then restores target.hp by heal_amount (do not exceed target.max_hp)
-#       then reduces qty by 1
-#       if qty is 0, print: "Health Potion is out of stock."
-#
-# Example:
-#   potion = Potion("Health Potion", 3, 50)
-#   potion.use(warrior)
+if __name__ == '__main__':
+    warrior = Warrior("Jack", 100, 30)
+    potion = Potion("Health Potion", 50, 3)
 
-
-# ------------------------------------------------------------------
-# TASK 3 - Weapon subclass
-# ------------------------------------------------------------------
-# Create a class Weapon that inherits from Item with:
-#   - __init__(self, name, qty, bonus_attack)
-#       bonus_attack = extra attack damage this weapon adds
-#   - equip(self, target)
-#       prints: "Artjom equips Sword. Attack increased by 15."
-#       then increases target.base_attack by bonus_attack
-#
-# Example:
-#   sword = Weapon("Sword", 1, 15)
-#   sword.equip(warrior)
+    assert warrior.hp == warrior.max_hp, "Warrior HP is not equal to max_hp"
+    warrior.take_damage(20)
+    assert warrior.hp == warrior.max_hp - 20, "Difference in HP after damage"
+    potion.use(warrior)
+    assert warrior.hp == warrior.max_hp, f"HP over max HP limit ({warrior.hp} / {warrior.max_hp} HP)"
+    assert potion.qty == 2, f"Wrong potion qty"

@@ -75,13 +75,15 @@ class Mage(Entity):
     
 
 
-warrior = Warrior('Jack', 100, 20)
-enemy = Entity('Goblin', 200, 10)
-mage = Mage('Merlin', 70, 15)
+
+if __name__ == '__main__':
+    warrior = Warrior('Jack', 100, 20)
+    enemy = Entity('Goblin', 200, 10)
+    mage = Mage('Merlin', 70, 15)
 
 
-mage.attack(enemy, '3')
-mage.cast_fireball(enemy)
-mage.cast_fireball(enemy)
-mage.cast_fireball(enemy)
-mage.cast_fireball(enemy)
+    mage.attack(enemy, '3')
+    mage.cast_fireball(enemy)
+    mage.cast_fireball(enemy)
+    mage.cast_fireball(enemy)
+    mage.cast_fireball(enemy)
