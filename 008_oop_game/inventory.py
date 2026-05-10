@@ -84,21 +84,40 @@ class Weapon(Item):
     # TODO Пересмотреть метод надевания предмета
     # 
     def equip(self, target):
+
+        if hasattr(target, 'equiped_weapon') and target.equiped_weapon:
+            print(f'{target.name} unequips {target.equiped_weapon.name}.')
+            target.equiped_weapon.unequip(target)
+
         print(f'{target.name} equips {self.name}. Attack increased by {self.bonus_attack}')
         target.base_attack += self.bonus_attack
+        target.equiped_weapon = self
+
+    
+    def unequip(self, target):
+        if hasattr(target, 'equiped_weapon') and target.equiped_weapon:
+            print(f'{target.name} unequips {self.name}. Attack decreased by {self.bonus_attack}.')
+            target.base_attack -= target.equiped_weapon.bonus_attack
+            target.equiped_weapon = None
+        else:
+            print(f'{target.name} does not have weapon equiped.')
+
+
+
 
 
 if __name__ == "__main__":
-    backpack = Inventory()
-    potion = Potion("Health Potion", 50, 3)
-    big_potion = Potion("Greater Health Potion", 100, 1)
-    backpack.show_all_items()
+    pass
+    # backpack = Inventory()
+    # potion = Potion("Health Potion", 50, 3)
+    # big_potion = Potion("Greater Health Potion", 100, 1)
+    # backpack.show_all_items()
 
     
-    backpack.add(potion)
-    backpack.add(big_potion)
-    assert len(backpack.items) == 2, "Inventory should stack similar items"
-    assert sum([item.qty for item in backpack.items]) == 4, "Items qty is mismatched"
+    # backpack.add(potion)
+    # backpack.add(big_potion)
+    # assert len(backpack.items) == 2, "Inventory should stack similar items"
+    # assert sum([item.qty for item in backpack.items]) == 4, "Items qty is mismatched"
 
     #################################################
     # qty_list = []
@@ -107,14 +126,14 @@ if __name__ == "__main__":
     # print(qty_list)
 
     #########################################
-    backpack.show_all_items()
+    # backpack.show_all_items()
 
-    print(backpack.get_item_by_name('health poTion'))
-    print(backpack.get_item_by_name('StamIna Pot'))
+    # print(backpack.get_item_by_name('health poTion'))
+    # print(backpack.get_item_by_name('StamIna Pot'))
 
-    warrior = Warrior('Jack', 100, 20)
-    warrior.take_damage(30)
-    backpack.use_item('health potion', warrior)
+    # warrior = Warrior('Jack', 100, 20)
+    # warrior.take_damage(30)
+    # backpack.use_item('health potion', warrior)
 
 
 # backpack.show()

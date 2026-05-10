@@ -1,3 +1,5 @@
+from settings import SEPARATOR
+
 class Entity:
 
     def __init__(self, name, max_hp, base_attack):
@@ -5,6 +7,7 @@ class Entity:
         self.hp = max_hp
         self.max_hp = max_hp
         self.base_attack = base_attack
+        self.equiped_weapon = None
 
     def take_damage(self, amount):
         if not amount:
@@ -27,6 +30,18 @@ class Entity:
 
     def is_alive(self):
         return self.hp > 0
+    
+    def show_status(self):
+        weapon_name = self.equiped_weapon.name if self.equiped_weapon else None
+        print(f'\n--- {self.name} Status ---')
+        print(f'HP: {self.hp}/{self.max_hp}')
+        print(f'Attack: {self.base_attack} (Weapon: {weapon_name})')
+        if hasattr(self, 'rage'):
+            print(f'Rage: {self.rage}/{self.max_rage}')
+        if hasattr(self, 'mana'):
+            print(f'Mana: {self.mana}/{self.max_mana}')
+        print(SEPARATOR)
+
     
 
 class Warrior(Entity):
