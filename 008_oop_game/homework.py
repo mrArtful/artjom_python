@@ -1,22 +1,22 @@
 """
-HOMEWORK: The Equipment Slot
+RPG GAME - INVENTORY HOMEWORK
 
-CONTEXT:
-Currently, when a character equips a weapon, their `base_attack` is increased directly.
-However, we have no way of knowing WHICH weapon is equipped, and if we equip a second 
-weapon, the bonuses just keep stacking infinitely!
+Welcome to the Inventory expansion homework! 
+Your goal is to integrate the Inventory system into the existing RPG game.
 
-TASK:
-1. Modify the `Entity` class (in entities.py) or extend it here to have an `equipped_weapon` attribute.
-2. Update the `Weapon` class below:
-    - Implement `equip(self, target)`: 
-        - It should check if the target already has a weapon.
-        - If yes, it should unequip the old weapon first (subtract its bonus).
-        - Then, it should add the new weapon's bonus and set `target.equipped_weapon = self`.
-    - Implement `unequip(self, target)`:
-        - It should subtract the bonus and set `target.equipped_weapon = None`.
+--- TASK 1 (Beginner) ---
+In 'entities.py', modify the Entity class to include an inventory.
+Every character should start with an empty Inventory instance (from inventory.py).
 
-GOAL: 
-Ensure that a character can only have ONE weapon equipped at a time, and switching 
-weapons correctly calculates the final attack power.
+--- TASK 2 (Intermediate) ---
+In 'inventory.py', create a new class 'ManaPotion' that inherits from 'Potion'.
+Instead of healing HP, it should restore MANA for Mages.
+Hint: Check if the target has the 'mana' attribute before trying to restore it.
+
+--- TASK 3 (Advanced) BONUS ---
+In 'game.py', implement the 'Item Menu' logic.
+When the player chooses '2. Use Item / Equip Weapon':
+1. Show all items in the inventory.
+2. Ask the player to enter the name of the item they want to use/equip.
+3. Use the item on the player.
 """
