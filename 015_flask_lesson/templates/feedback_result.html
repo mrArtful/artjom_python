@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Feedback Form{% endblock %}
+
+{% block content %}
+    <h1>Feedback Result</h1>
+    
+    {% if message %}
+        <p style="color: green">{{ message }}</p>
+    {% endif %}
+
+    <p>Thank you {{ name }}. Your comment is saved!</p>
+    <p>{{ comment }}</p>
+
+{% endblock %}

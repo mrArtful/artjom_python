@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>Welcome, {{ name }}!</h1>
+    
+    {% if items %}
+        <p>Here are your items:</p>
+        <ul>
+            {% for item in items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no items.</p>
+    {% endif %}
+
+    <hr>
+    <p>This page was rendered using Jinja2 templates.</p>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Forms</title>
+</head>
+<body>
+    <h1>Feedback Form</h1>
+    
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="username" required><br><br>
+        
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="user_comment" required></textarea><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

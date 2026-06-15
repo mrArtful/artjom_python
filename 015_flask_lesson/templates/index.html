@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Static page created by Flask{% endblock %}
+
+{% block content %}
+    <h1>Welcome, {{ name }}</h1>
+    {% if items %}
+        <p>Your tasks:</p>
+        <ul>
+            {% for item in items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no items.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>My Notes</h1>
+    <!-- TODO: Loop through notes and display titles as links -->
+    <div class="note-item">
+        <p>No notes yet. <a href="{{ url_for('add_note') }}">Add your first note!</a></p>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask SQLite Demo</title>
+</head>
+<body>
+    <h1>Guestbook (SQLite)</h1>
+    
+    <form action="/add" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required><br>
+        <textarea name="content" placeholder="Your Message" required></textarea><br>
+        <button type="submit">Post Message</button>
+    </form>
+
+    <hr>
+
+    {% for msg in messages %}
+        <div>
+            <strong>{{ msg['name'] }}</strong>: {{ msg['content'] }}
+            <hr>
+        </div>
+    {% endfor %}
+</body>
+</html>

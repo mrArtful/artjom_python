@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My App{% endblock %}</title>
+    <!-- url_for('static', filename='...') generates the correct path to the static file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Flask Application</h1>
+            <nav>
+                <a href="/">Home</a> | 
+                <a href="/about">About</a>
+            </nav>
+        </header>
+        <hr>
+        
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        
+        <footer>
+            <hr>
+            <p>&copy; 2026 Flask Tutorial</p>
+        </footer>
+    </div>
+</body>
+</html>
